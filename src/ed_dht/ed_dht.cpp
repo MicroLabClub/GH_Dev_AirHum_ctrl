@@ -26,7 +26,7 @@
 // See guide for details on sensor wiring and usage:
 //   https://learn.adafruit.com/dht/overview
 
-DHT_Unified dht(DHTPIN, DHTTYPE);
+DHT_Unified dht(DHT_PIN, DHTTYPE);
 
 uint32_t delayMS;
 
@@ -36,22 +36,22 @@ int ed_dht_temperature_error = 0;
 float ed_dht_humidity = 0;
 int ed_dht_humidity_error = 0;
 
-float ed_dht_GetTemperature(void)
+float ed_dht_get_temperature(void)
 {
   return ed_dht_temperature;
 }
 
-float ed_dht_GetHumidity(void)
+float ed_dht_get_humidity(void)
 {
   return ed_dht_humidity;
 }
 
-int ed_dht_GetTemperatureError(void)
+int ed_dht_get_temperature_error(void)
 {
   return ed_dht_temperature_error;
 }
 
-int ed_dht_GetHumidityError(void)
+int  ed_dht_get_humidity_error(void)
 {
   return ed_dht_humidity_error;
 }
@@ -103,7 +103,7 @@ void ed_dht_loop()
   {
     ed_dht_temperature_error = 1;
 
-    Serial.println(F("ED DHT Error reading temperature!"));
+    // Serial.println(F("ED DHT Error reading temperature!"));
   }
   else
   {
@@ -121,7 +121,7 @@ void ed_dht_loop()
   {
     ed_dht_humidity_error = 1;
     
-    Serial.println(F("ED DHT Error reading humidity!"));
+    // Serial.println(F("ED DHT Error reading humidity!"));
   }
   else
   {

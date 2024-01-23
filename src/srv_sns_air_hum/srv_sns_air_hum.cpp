@@ -7,13 +7,13 @@ float srv_sns_air_humidity = 19.0;
 int srv_sns_air_humidity_error = 0;
 
 
-float srv_sns_air_GetHumidity(void)
+float srv_sns_air_get_humidity(void)
 {
   return srv_sns_air_humidity;
 }
 
 
-int srv_sns_air_GetHumidityError(void)
+int srv_sns_air_get_humidity_error(void)
 {
   return srv_sns_air_humidity_error;
 }
@@ -41,15 +41,15 @@ float srv_sns_air_hum_cond(float temp);
 void srv_sns_air_hum_loop()
 {
 
-  if (ed_dht_GetHumidityError())
+  if ( ed_dht_get_humidity_error())
   {
-    Serial.println(F("SRV SNS Error reading humidity!"));
+    // Serial.println(F("SRV SNS Error reading humidity!"));
     srv_sns_air_humidity_error = 1;
   }
   else
   {
     srv_sns_air_humidity_error = 0;
-    float temp_raw = ed_dht_GetHumidity();
+    float temp_raw = ed_dht_get_humidity();
 
     // Serial.print(F("SRV SNS Humidity: "));
     // Serial.print(temp_raw);
